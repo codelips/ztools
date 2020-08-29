@@ -1,0 +1,15 @@
+{
+    "name": "codelips/ztools",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "codelips"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Ztools\\":"src\\"
+        }
+    }
+}
