@@ -1,4 +1,5 @@
 <?php
+
 namespace Ztools\Impl;
 
 abstract class FacadeCalled
@@ -9,9 +10,9 @@ abstract class FacadeCalled
 
     public static function __callStatic($method, $args)
     {
-        if (static::$adapter === null) {
-            static::$adapter = static::getAdapter();
+        if (!in_array(static::class, static::$adapter ?? [])) {
+            static::$adapter[static::class] = static::getAdapter();
         }
-        return static::$adapter->$method(...$args);
+        return static::$adapter[static::class]->$method(...$args);
     }
 }
